@@ -17,7 +17,7 @@ type OrderItem struct {
 }
 
 type CreateOrderItem struct {
-	Name      string `json:"name" validate:"required"`
-	Price     int    `json:"price" validate:"required"`
-	ExpiredAt string `json:"expired_at" validate:"required"`
+	Name       string `json:"name" validate:"required"`
+	Price      int    `json:"price" validate:"required"`
+	ExpiredDay int    `json:"expired_days" validate:"required"`
 }
