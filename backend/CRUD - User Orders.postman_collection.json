@@ -702,7 +702,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Le Spicy Rum 20s\",\n    \"price\": 75000,\n    \"expired_at\": \"2023-05-10 15:30:00\"\n}",
+							"raw": "{\n    \"name\": \"Luwak White Coffee\",\n    \"price\": 8500,\n    \"expired_days\": 30\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -730,7 +730,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Le Spicy Rum 20s\",\n    \"price\": 75000,\n    \"expired_at\": \"2023-05-10 15:30:00\"\n}",
+									"raw": "{\n    \"name\": \"Luwak White Coffee\",\n    \"price\": 8500,\n    \"expired_days\": 30\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -755,20 +755,28 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Server",
+									"value": "nginx/1.21.6"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Mar 2023 13:21:59 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=UTF-8"
 								},
 								{
-									"key": "Date",
-									"value": "Sat, 04 Mar 2023 07:18:05 GMT"
+									"key": "Content-Length",
+									"value": "231"
 								},
 								{
-									"key": "Content-Length",
-									"value": "239"
+									"key": "Connection",
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": 201,\n    \"message\": \"OK\",\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Le Spicy Rum 20s\",\n        \"price\": 75000,\n        \"expired_at\": \"2023-05-10T15:30:00.001+07:00\",\n        \"created_at\": \"2023-03-04T14:18:05.898+07:00\",\n        \"updated_at\": \"2023-03-04T14:18:05.898+07:00\",\n        \"deleted_at\": null\n    }\n}"
+							"body": "{\n    \"status\": 201,\n    \"message\": \"OK\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Luwak White Coffee\",\n        \"price\": 8500,\n        \"expired_at\": \"2023-04-03T13:21:59.076051385Z\",\n        \"created_at\": \"2023-03-04T13:21:59.077Z\",\n        \"updated_at\": \"2023-03-04T13:21:59.077Z\",\n        \"deleted_at\": null\n    }\n}"
 						},
 						{
 							"name": "400 - Bad Request",
@@ -777,7 +785,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Le Spicy Rum 20s\",\n    \"price\": \"75000\",\n    \"expired_at\": \"2023-05-10 15:30:00\"\n}",
+									"raw": "{\n    \"name\": \"Luwak White Coffee\",\n    \"price\": 8500,\n    \"expired_days\": \"30\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -802,20 +810,28 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Server",
+									"value": "nginx/1.21.6"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Mar 2023 13:22:15 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=UTF-8"
 								},
 								{
-									"key": "Date",
-									"value": "Sat, 04 Mar 2023 07:28:00 GMT"
+									"key": "Content-Length",
+									"value": "143"
 								},
 								{
-									"key": "Content-Length",
-									"value": "136"
+									"key": "Connection",
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid Request\",\n    \"error\": {\n        \"message\": \"Unmarshal type error: expected=int, got=string, field=price, offset=54\"\n    }\n}"
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid Request\",\n    \"error\": {\n        \"message\": \"Unmarshal type error: expected=int, got=string, field=expired_days, offset=79\"\n    }\n}"
 						}
 					]
 				},
@@ -1056,7 +1072,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": \"15000\",\n    \"expired_at\": \"2023-02-15 10:00:00\"\n}",
+							"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_days\": 180\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1084,7 +1100,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_at\": \"2023-02-15 10:00:00\"\n}",
+									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_days\": 180\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1109,20 +1125,28 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Server",
+									"value": "nginx/1.21.6"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Mar 2023 13:22:51 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=UTF-8"
 								},
 								{
-									"key": "Date",
-									"value": "Sat, 04 Mar 2023 07:42:27 GMT"
+									"key": "Content-Length",
+									"value": "220"
 								},
 								{
-									"key": "Content-Length",
-									"value": "219"
+									"key": "Connection",
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"De Vou Rum 90s\",\n        \"price\": 15000,\n        \"expired_at\": \"2023-02-15T10:00:00.001+07:00\",\n        \"created_at\": \"0001-01-01T00:00:00Z\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\",\n        \"deleted_at\": null\n    }\n}"
+							"body": "{\n    \"status\": 200,\n    \"message\": \"OK\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"De Vou Rum 90s\",\n        \"price\": 15000,\n        \"expired_at\": \"2023-08-31T13:22:50.950736714Z\",\n        \"created_at\": \"0001-01-01T00:00:00Z\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\",\n        \"deleted_at\": null\n    }\n}"
 						},
 						{
 							"name": "404 - Not Found",
@@ -1131,7 +1155,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_at\": \"2023-02-15 10:00:00\"\n}",
+									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_days\": 180\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1156,29 +1180,37 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Server",
+									"value": "nginx/1.21.6"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Mar 2023 13:22:59 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=UTF-8"
 								},
 								{
-									"key": "Date",
-									"value": "Sat, 04 Mar 2023 07:42:58 GMT"
-								},
-								{
 									"key": "Content-Length",
 									"value": "63"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": 404,\n    \"message\": \"OrderItemID #1 Not Found or Deleted\"\n}"
 						},
 						{
-							"name": "400 - Malformat Request",
+							"name": "400 - Bad Request",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": \"15000\",\n    \"expired_at\": \"2023-02-15 10:00:00\"\n}",
+									"raw": "{\n    \"name\": \"De Vou Rum 90s\",\n    \"price\": 15000,\n    \"expired_days\": \"180\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1186,7 +1218,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/order-items/1",
+									"raw": "http://localhost:8080/order-items/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -1194,7 +1226,7 @@
 									"port": "8080",
 									"path": [
 										"order-items",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -1203,20 +1235,28 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Server",
+									"value": "nginx/1.21.6"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 04 Mar 2023 13:23:10 GMT"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json; charset=UTF-8"
 								},
 								{
-									"key": "Date",
-									"value": "Sat, 04 Mar 2023 07:43:18 GMT"
+									"key": "Content-Length",
+									"value": "143"
 								},
 								{
-									"key": "Content-Length",
-									"value": "136"
+									"key": "Connection",
+									"value": "keep-alive"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid Request\",\n    \"error\": {\n        \"message\": \"Unmarshal type error: expected=int, got=string, field=price, offset=52\"\n    }\n}"
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Invalid Request\",\n    \"error\": {\n        \"message\": \"Unmarshal type error: expected=int, got=string, field=expired_days, offset=77\"\n    }\n}"
 						}
 					]
 				},

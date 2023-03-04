@@ -230,10 +230,7 @@ func (h *UserHandler) Delete(c echo.Context) error {
 	})
 }
 
-func parseTime(s string) (time.Time, error) {
-	layout := "2006-01-02 15:04:05.000"
-	// Menggunakan time.ParseInLocation()
-	loc, _ := time.LoadLocation("Asia/Jakarta")
-
-	return time.ParseInLocation(layout, s+".001", loc)
+func generateTime(days int) time.Time {
+	today := time.Now()
+	return today.AddDate(0, 0, days)
 }

@@ -38,21 +38,16 @@ func (h *OrderItemHandler) Create(c echo.Context) error {
 		})
 	}
 
-	expiredAt, err := parseTime(input.ExpiredAt)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, template.ResponseHTTP{
-			Status:  http.StatusBadRequest,
-			Error:   err,
-			Message: "Unkown Format expired_at",
-		})
+	if input.ExpiredDay < 1 {
+		input.ExpiredDay = 1
 	}
 
 	var orderItem entity.OrderItem
 	orderItem.Name = input.Name
 	orderItem.Price = input.Price
-	orderItem.ExpiredAt = expiredAt
+	orderItem.ExpiredAt = generateTime(input.ExpiredDay)
 
-	if err = h.orderItemUseCase.Create(c.Request().Context(), &orderItem); err != nil {
+	if err := h.orderItemUseCase.Create(c.Request().Context(), &orderItem); err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, template.ResponseHTTP{
 			Status:  http.StatusInternalServerError,
 			Error:   err,
@@ -185,20 +180,15 @@ func (h *OrderItemHandler) Update(c echo.Context) error {
 		})
 	}
 
-	expiredAt, err := parseTime(input.ExpiredAt)
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, template.ResponseHTTP{
-			Status:  http.StatusBadRequest,
-			Error:   err,
-			Message: "Error Parse Request expired_at",
-		})
+	if input.ExpiredDay < 1 {
+		input.ExpiredDay = 1
 	}
 
 	var orderItem entity.OrderItem
 	orderItem.ID = id
 	orderItem.Name = input.Name
 	orderItem.Price = input.Price
-	orderItem.ExpiredAt = expiredAt
+	orderItem.ExpiredAt = generateTime(input.ExpiredDay)
 
 	if err := h.orderItemUseCase.Update(c.Request().Context(), &orderItem); err != nil {
 		if err.Error() == "record not found" {
