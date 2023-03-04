@@ -1,23 +1,41 @@
 services:
+  redis:
+    hostname: redis-hub.docker
+    image: 'redislabs/redismod'
+    ports:
+      - '6379:6379'
   backend:
+    hostname: backend-hub.docker
     build: backend
-    secrets:
-      - db-password
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - SERVICE_PORT=${SERVICE_PORT}
+      - LOG_FILE=${LOG_FILE}
     depends_on:
+      - redis
       - db
   db:
+    hostname: db-hub.docker
     image: mariadb
     restart: always
-    secrets:
-      - db-password
     volumes:
       - db-data:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     expose:
       - 3306
+    ports:
+      - 3306:3306
   proxy:
+    hostname: proxy-hub.docker
     build: proxy
     ports:
       - 8080:80
@@ -25,6 +43,3 @@ services:
       - backend
 volumes:
   db-data:
-secrets:
-  db-password:
-    file: db/password.txt
